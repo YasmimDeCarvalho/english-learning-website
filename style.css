@@ -36,7 +36,7 @@ body {
 
 
 .mini-logo {
-    width: 170px;
+    width: 220px;
     height: auto;
 
     display: block;
@@ -46,13 +46,13 @@ body {
 .sub-logo {
     margin-top: 5px;
 
-    font-size: 8px;
+    font-size: 10px;
 
     letter-spacing: 1.8px;
 
     font-weight: 600;
 
-    color: #77736c;
+    color: #1D324D;
 }
 
 .nav-links {
@@ -72,69 +72,77 @@ body {
 
 
 /* ==============================
-   HERO / CORPO
+HERO
 ================================= */
 
 .corpo {
-    min-height: calc(100vh - 90px);
+    min-height: calc(100vh - 100px);
 
-    padding: 60px 6% 100px;
+    padding: 80px 6% 120px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.3fr 0.7fr;
 
-    gap: 80px;
+    gap: 100px;
 
     align-items: center;
+    color: #1D324D;
 }
+
+
+/* Main content */
 
 .corpo-content {
-    max-width: 560px;
+    max-width: 720px;
 }
 
 
-/* Small heading */
+/* Small label */
 
-.subcabecalho {
-    margin-bottom: 24px;
+.hero-label {
+    margin-bottom: 30px;
 
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 2.2px;
     font-weight: 600;
+
+    color: #77736c;
 }
 
 
-/* Main heading */
+/* Main title */
 
 .corpo h1 {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 
     font-family: Georgia, serif;
 
-    font-size: clamp(64px, 8vw, 110px);
+    font-size: clamp(64px, 7vw, 105px);
 
     font-weight: 400;
 
-    line-height: 0.9;
+    line-height: 0.95;
+
+    letter-spacing: -2px;
 }
 
 
 /* Description */
 
 .hero-description {
-    max-width: 430px;
+    max-width: 520px;
 
-    margin-bottom: 38px;
+    margin-bottom: 40px;
 
-    font-size: 18px;
+    font-size: 17px;
 
-    line-height: 1.7;
+    line-height: 1.8;
 
     color: #5b5953;
 }
 
 
-/* Button */
+/* CTA */
 
 .hero-button {
     display: inline-flex;
@@ -143,13 +151,13 @@ body {
 
     gap: 14px;
 
-    padding: 14px 0;
+    padding-bottom: 7px;
 
     color: #30302d;
 
     text-decoration: none;
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: 600;
 
@@ -165,22 +173,22 @@ body {
 }
 
 
-/* ==============================
-   HERO IMAGE
-================================= */
+/* Side phrase */
 
-.corpo-image {
-    width: 100%;
-    height: 650px;
+.hero-side-text {
+    align-self: end;
+
+    padding-bottom: 30px;
 }
 
-.hero-image {
-    width: 100%;
-    height: 100%;
+.hero-side-text p {
+    font-family: Georgia, serif;
 
-    object-fit: contain;
+    font-size: 25px;
 
-    display: block;
+    line-height: 1.4;
+
+    color: #77736c;
 }
 
 
@@ -542,4 +550,245 @@ body {
 
 .publico-link:hover {
     opacity: 0.6;
+}
+
+/* ==============================
+LESSONS
+================================= */
+
+.lessons {
+    padding: 150px 6% 70px;
+    background-color: #f8f6f1;
+}
+
+
+/* Label */
+
+.lessons-label {
+    margin-bottom: 70px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+
+/* Introduction */
+
+.lessons-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    max-width: 1100px;
+
+    margin-bottom: 120px;
+}
+
+.lessons-intro h2 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(48px, 6vw, 82px);
+
+    font-weight: 400;
+    line-height: 0.95;
+
+    color: #1D324D;
+}
+
+.lessons-intro p {
+    align-self: end;
+
+    max-width: 480px;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #5b5953;
+}
+
+
+/* Lesson information */
+
+.lessons-details {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    max-width: 1200px;
+}
+
+.lesson-detail {
+    padding: 40px 20px 40px 0;
+
+    border-top: 1px solid #aaa49a;
+}
+
+.lesson-number {
+    display: block;
+
+    margin-bottom: 55px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #77736c;
+}
+
+.lesson-detail h3 {
+    margin-bottom: 7px;
+
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+.lesson-highlight {
+    margin-bottom: 25px;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: #77736c;
+}
+
+.lesson-detail > p:last-child {
+    max-width: 300px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #5b5953;
+}
+
+
+/* Price */
+
+.lessons-price {
+    max-width: 1200px;
+
+    margin-top: 90px;
+    padding-top: 30px;
+
+    border-top: 1px solid #aaa49a;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 18px;
+}
+
+.price {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    color: #1D324D;
+}
+
+.lesson-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 7px;
+
+    color: #30302d;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid #30302d;
+}
+
+.lesson-link span {
+    font-size: 17px;
+}
+
+.lesson-link:hover {
+    opacity: 0.6;
+}
+
+/* ==============================
+FOOTER
+================================= */
+
+.footer {
+    background-color: #f8f6f1;
+}
+
+
+/* Logo above the bar */
+
+.footer-logo-area {
+    padding: 25px 6% 25px;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* Thin footer bar */
+
+.footer-bar {
+    min-height: 60px;
+
+    padding: 18px 6%;
+
+    background-color: #1D324D;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #f8f6f1;
+}
+
+.footer-bar p {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+/* Links */
+
+.footer-links {
+    display: flex;
+    gap: 28px;
+}
+
+.footer-links a {
+    color: #f8f6f1;
+
+    text-decoration: none;
+
+    font-size: 11px;
+}
+
+.footer-links a:hover {
+    opacity: 0.65;
 }
