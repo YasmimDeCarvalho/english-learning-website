@@ -1,0 +1,211 @@
+/* ==============================
+   BASE
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbf4ec;
+    color: #30302d;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==============================
+   LEVEL TEST HEADER
+================================= */
+
+.test-navbar {
+    width: 100%;
+    padding: 28px 6%;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.test-brand {
+    display: block;
+    flex-shrink: 0;
+}
+
+.test-logo {
+    width: 170px;
+    height: auto;
+
+    display: block;
+}
+
+.back-home {
+    margin-top: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    white-space: nowrap;
+
+    color: #30302d;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    border-bottom: 1px solid #30302d;
+    padding-bottom: 6px;
+}
+
+.back-home:hover {
+    opacity: 0.6;
+}
+
+
+/* ==============================
+   TEST INTRO
+================================= */
+
+.test-page {
+    padding: 90px 6% 120px;
+}
+
+.test-intro {
+    max-width: 760px;
+}
+
+
+/* Small label */
+
+.test-label {
+    margin-bottom: 28px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
+
+    color: #77736c;
+}
+
+
+/* Main title */
+
+.test-intro h1 {
+    margin-bottom: 35px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(58px, 6vw, 88px);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -1.5px;
+
+    color: #1D324D;
+}
+
+
+/* Description */
+
+.test-description {
+    max-width: 580px;
+
+    margin-bottom: 65px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #5b5953;
+}
+
+
+/* ==============================
+   STUDENT INFORMATION
+================================= */
+
+.student-info {
+    max-width: 580px;
+}
+
+.form-group {
+    margin-bottom: 38px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: #77736c;
+}
+
+.form-group input {
+    width: 100%;
+
+    padding: 8px 0 12px;
+
+    border: none;
+    border-bottom: 1px solid #aaa49a;
+
+    background: transparent;
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    color: #1D324D;
+
+    outline: none;
+}
+
+.form-group input:focus {
+    border-bottom-color: #1D324D;
+}
+
+
+/* ==============================
+   START BUTTON
+================================= */
+
+.start-test {
+    margin-top: 15px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 0 7px;
+
+    border: none;
+    border-bottom: 1px solid #30302d;
+
+    background: transparent;
+
+    color: #30302d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.start-test span {
+    font-size: 18px;
+}
+
+.start-test:hover {
+    opacity: 0.6;
+}
