@@ -9,23 +9,25 @@
 }
 
 body {
-    background-color: #fbf4ec;
+    background-color: #f3ede4;
     color: #30302d;
     font-family: Arial, sans-serif;
 }
 
 
 /* ==============================
-   LEVEL TEST HEADER
+   PLACEMENT HEADER
 ================================= */
 
 .test-navbar {
     width: 100%;
-    padding: 28px 6%;
+    padding: 5px 6%;
 
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    background-color: #fbf4ec;
 }
 
 .test-brand {
@@ -65,7 +67,7 @@ body {
 
 
 /* ==============================
-   TEST INTRO
+   PLACEMENT INTRO
 ================================= */
 
 .test-page {
@@ -209,67 +211,80 @@ body {
 .start-test:hover {
     opacity: 0.6;
 }
+
 /* ==============================
-   QUESTION SCREEN
+   PLACEMENT SCHEDULE
+================================= */
+
+.placement-schedule {
+    margin-top: 65px;
+    margin-bottom: 45px;
+}
+
+.schedule-label {
+    margin-bottom: 20px;
+
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+
+    color: #77736c;
+}
+
+/* ==============================
+   PLACEMENT CALENDAR
 ================================= */
 
 .hidden {
     display: none;
 }
 
-.question-screen {
-    max-width: 900px;
-}
-
-.question-progress {
-    margin-bottom: 28px;
-
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 600;
-
-    color: #77736c;
-}
-
-.question-screen h2 {
-    margin-bottom: 60px;
-
-    font-family: Georgia, serif;
-
-    font-size: clamp(48px, 5vw, 72px);
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    color: #1D324D;
-}
-
-.answer-options {
+.available-dates {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
-    gap: 25px;
+    gap: 12px;
+
+    margin-bottom: 40px;
 }
 
-.answer-option {
-    min-height: 160px;
-
-    padding: 30px;
+.date-option,
+.time-option {
+    padding: 18px 12px;
 
     border: 1px solid #aaa49a;
 
     background: transparent;
 
-    font-family: Georgia, serif;
-
-    font-size: 24px;
-
     color: #30302d;
 
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+
     cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
-.answer-option:hover {
+.date-option:hover,
+.time-option:hover {
     border-color: #1D324D;
+}
+
+.date-option.selected,
+.time-option.selected {
+    border-color: #1D324D;
+    background-color: #1D324D;
+    color: #f3ede4;
+}
+
+.time-section {
+    margin-top: 35px;
+}
+
+.available-times {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
 }
