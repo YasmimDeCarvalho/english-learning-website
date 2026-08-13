@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Level Test | Village & Co.</title>
+    <title>English Placement | Village & Co.</title>
 
     <link rel="stylesheet" href="level-test.css">
 
@@ -29,36 +29,37 @@
         </a>
 
         <a href="index.html" class="back-home">
-            Voltar para o início
             <span>←</span>
+            Voltar para o início
         </a>
 
     </header>
 
 
-    <!-- Level Test -->
+    <!-- Placement -->
     <main class="test-page">
 
-        <section class="test-intro" id="test-intro">
+        <section class="test-intro">
 
             <p class="test-label">
-                LEVEL TEST
+                ENGLISH PLACEMENT
             </p>
 
             <h1>
-                Vamos descobrir<br>
-                por onde começar.
+                Vamos encontrar o<br>
+                melhor ponto de partida.
             </h1>
 
             <p class="test-description">
-                Este teste nos ajuda a conhecer um pouco do contato
-                atual do aluno com o inglês e encontrar uma turma
-                adequada.
+                Uma conversa individual em inglês para conhecermos
+                o nível atual do aluno e encontrarmos a turma mais
+                adequada para o seu momento.
             </p>
 
 
-            <form class="student-info" id="student-info">
+            <form class="student-info">
 
+                <!-- Student name -->
                 <div class="form-group">
 
                     <label for="student-name">
@@ -69,12 +70,14 @@
                         type="text"
                         id="student-name"
                         name="student-name"
+                        autocomplete="name"
                         required
                     >
 
                 </div>
 
 
+                <!-- Age -->
                 <div class="form-group">
 
                     <label for="student-age">
@@ -91,26 +94,75 @@
                     >
 
                 </div>
+
+
+                <!-- Parent phone -->
                 <div class="form-group">
 
-            <label for="parent-phone">
-                Telefone do responsável
-            </label>
+                    <label for="parent-phone">
+                        Telefone do responsável
+                    </label>
 
-            <input
-                type="tel"
-                id="parent-phone"
-                name="parent-phone"
-                inputmode="tel"
-                autocomplete="tel"
-                placeholder="(00) 00000-0000"
-                required
-            >
+                    <input
+                        type="tel"
+                        id="parent-phone"
+                        name="parent-phone"
+                        inputmode="tel"
+                        autocomplete="tel"
+                        placeholder="(00) 00000-0000"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Scheduling -->
+                <div class="placement-schedule">
+
+    <p class="schedule-label">
+        ESCOLHA UMA DATA
+    </p>
+
+    <div class="available-dates" id="available-dates">
+        <!-- Os sábados serão adicionados pelo JavaScript -->
+    </div>
+
+
+    <div class="time-section hidden" id="time-section">
+
+        <p class="schedule-label">
+            HORÁRIOS DISPONÍVEIS
+        </p>
+
+        <div class="available-times">
+
+            <button type="button" class="time-option" data-time="09:00">
+                09:00
+            </button>
+
+            <button type="button" class="time-option" data-time="09:30">
+                09:30
+            </button>
+
+            <button type="button" class="time-option" data-time="10:00">
+                10:00
+            </button>
+
+            <button type="button" class="time-option" data-time="10:30">
+                10:30
+            </button>
 
         </div>
 
+    </div>
+
+    <input type="hidden" id="placement-date" name="placement-date">
+    <input type="hidden" id="placement-time" name="placement-time">
+
+</div>
+
                 <button type="submit" class="start-test">
-                    Começar
+                    Agendar placement
                     <span>→</span>
                 </button>
 
@@ -118,237 +170,8 @@
 
         </section>
 
-    
-    <!-- Question Area -->
-<!-- Part 1 -->
-<section class="question-screen hidden" id="question-screen">
-
-    <div class="question-header">
-
-        <p class="question-part">
-            PART 1 — QUICK QUESTIONS
-        </p>
-
-        <p class="question-progress" id="question-progress">
-            QUESTION 01 OF 09
-        </p>
-
-    </div>
-
-    <h2 id="question-text">
-        Which one is a dog?
-    </h2>
-
-    <div class="answer-options" id="answer-options">
-        <!-- Answers will be added by JavaScript -->
-    </div>
-
-</section>
-
-</main>
-
-<script>
-
-    const studentForm = document.getElementById("student-info");
-    const testIntro = document.getElementById("test-intro");
-    const questionScreen = document.getElementById("question-screen");
-
-    const questionText = document.getElementById("question-text");
-    const questionProgress = document.getElementById("question-progress");
-    const answerOptions = document.getElementById("answer-options");
-
-
-    const questions = [
-
-    {
-        question: "Which one is a dog?",
-        answers: [
-            "🐶",
-            "🐱",
-            "🐰"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "Which color is the sun?",
-        answers: [
-            "Blue",
-            "Yellow",
-            "Purple"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "I am thirsty. What do I need?",
-        answers: [
-            "A pencil",
-            "A shoe",
-            "Water"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "How are you?",
-        answers: [
-            "I'm seven years old.",
-            "I'm good, thank you.",
-            "My name is Lucas."
-        ],
-        correct: 1
-    },
-
-    {
-        question: "Where do you sleep?",
-        answers: [
-            "At breakfast.",
-            "With a pencil.",
-            "In my bed."
-        ],
-        correct: 2
-    },
-
-    {
-        question: "Emma is hungry. What should she do?",
-        answers: [
-            "Eat something.",
-            "Put on her shoes.",
-            "Go to sleep."
-        ],
-        correct: 0
-    },
-
-    {
-        question: 'Tom: "Do you want to play outside?" Mia: "_____"',
-        answers: [
-            "It's on the table.",
-            "Yes, that sounds fun!",
-            "I am eight years old."
-        ],
-        correct: 1
-    },
-
-    {
-        question: "Lucy couldn't find her jacket, so she looked in her bedroom. Where is Lucy probably going?",
-        answers: [
-            "To take a shower",
-            "Outside",
-            "To sleep"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "Yesterday, Ben played soccer with his friends. What did Ben do yesterday?",
-        answers: [
-            "He will play soccer.",
-            "He is playing soccer.",
-            "He played soccer."
-        ],
-        correct: 2
-    }
-
-];
-
-
-    let currentQuestion = 0;
-    let score = 0;
-
-
-    studentForm.addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        testIntro.classList.add("hidden");
-        questionScreen.classList.remove("hidden");
-
-        showQuestion();
-
-    });
-
-
-    function showQuestion() {
-
-        const current = questions[currentQuestion];
-
-        questionProgress.textContent =
-            `QUESTION ${String(currentQuestion + 1).padStart(2, "0")} OF 09`;
-
-        questionText.textContent = current.question;
-
-        answerOptions.innerHTML = "";
-
-
-        current.answers.forEach(function(answer, index) {
-
-            const button = document.createElement("button");
-
-            button.classList.add("answer-option");
-
-            button.textContent = answer;
-
-            button.addEventListener("click", function() {
-                selectAnswer(index);
-            });
-
-            answerOptions.appendChild(button);
-
-        });
-
-    }
-
-
-    function selectAnswer(selectedIndex) {
-
-        const current = questions[currentQuestion];
-
-        if (selectedIndex === current.correct) {
-            score++;
-        }
-
-        currentQuestion++;
-
-        if (currentQuestion < questions.length) {
-
-            showQuestion();
-
-        } else {
-
-            finishPartOne();
-
-        }
-
-    }
-
-
-    function finishPartOne() {
-
-        questionScreen.innerHTML = `
-            <p class="question-part">
-                PART 1 COMPLETE ✓
-            </p>
-
-            <h2>
-                Great job!
-            </h2>
-
-            <p class="part-complete-text">
-                Agora vamos para a última parte.
-                Você vai ler uma pequena história em inglês
-                e responder 3 perguntas sobre ela.
-            </p>
-
-            <button class="start-test" id="start-reading">
-                Continue
-                <span>→</span>
-            </button>
-        `;
-
-    }
-
-</script>
+    </main>
+    <script src="placement.js"></script>
 
 </body>
 
