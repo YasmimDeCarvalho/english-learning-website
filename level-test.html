@@ -39,7 +39,7 @@
     <!-- Level Test -->
     <main class="test-page">
 
-        <section class="test-intro">
+        <section class="test-intro" id="test-intro">
 
             <p class="test-label">
                 LEVEL TEST
@@ -57,7 +57,7 @@
             </p>
 
 
-            <form class="student-info">
+            <form class="student-info" id="student-info">
 
                 <div class="form-group">
 
@@ -91,7 +91,23 @@
                     >
 
                 </div>
+                <div class="form-group">
 
+            <label for="parent-phone">
+                Telefone do responsável
+            </label>
+
+            <input
+                type="tel"
+                id="parent-phone"
+                name="parent-phone"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="(00) 00000-0000"
+                required
+            >
+
+        </div>
 
                 <button type="submit" class="start-test">
                     Começar
@@ -102,7 +118,237 @@
 
         </section>
 
-    </main>
+    
+    <!-- Question Area -->
+<!-- Part 1 -->
+<section class="question-screen hidden" id="question-screen">
+
+    <div class="question-header">
+
+        <p class="question-part">
+            PART 1 — QUICK QUESTIONS
+        </p>
+
+        <p class="question-progress" id="question-progress">
+            QUESTION 01 OF 09
+        </p>
+
+    </div>
+
+    <h2 id="question-text">
+        Which one is a dog?
+    </h2>
+
+    <div class="answer-options" id="answer-options">
+        <!-- Answers will be added by JavaScript -->
+    </div>
+
+</section>
+
+</main>
+
+<script>
+
+    const studentForm = document.getElementById("student-info");
+    const testIntro = document.getElementById("test-intro");
+    const questionScreen = document.getElementById("question-screen");
+
+    const questionText = document.getElementById("question-text");
+    const questionProgress = document.getElementById("question-progress");
+    const answerOptions = document.getElementById("answer-options");
+
+
+    const questions = [
+
+    {
+        question: "Which one is a dog?",
+        answers: [
+            "🐶",
+            "🐱",
+            "🐰"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Which color is the sun?",
+        answers: [
+            "Blue",
+            "Yellow",
+            "Purple"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "I am thirsty. What do I need?",
+        answers: [
+            "A pencil",
+            "A shoe",
+            "Water"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How are you?",
+        answers: [
+            "I'm seven years old.",
+            "I'm good, thank you.",
+            "My name is Lucas."
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Where do you sleep?",
+        answers: [
+            "At breakfast.",
+            "With a pencil.",
+            "In my bed."
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Emma is hungry. What should she do?",
+        answers: [
+            "Eat something.",
+            "Put on her shoes.",
+            "Go to sleep."
+        ],
+        correct: 0
+    },
+
+    {
+        question: 'Tom: "Do you want to play outside?" Mia: "_____"',
+        answers: [
+            "It's on the table.",
+            "Yes, that sounds fun!",
+            "I am eight years old."
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Lucy couldn't find her jacket, so she looked in her bedroom. Where is Lucy probably going?",
+        answers: [
+            "To take a shower",
+            "Outside",
+            "To sleep"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Yesterday, Ben played soccer with his friends. What did Ben do yesterday?",
+        answers: [
+            "He will play soccer.",
+            "He is playing soccer.",
+            "He played soccer."
+        ],
+        correct: 2
+    }
+
+];
+
+
+    let currentQuestion = 0;
+    let score = 0;
+
+
+    studentForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        testIntro.classList.add("hidden");
+        questionScreen.classList.remove("hidden");
+
+        showQuestion();
+
+    });
+
+
+    function showQuestion() {
+
+        const current = questions[currentQuestion];
+
+        questionProgress.textContent =
+            `QUESTION ${String(currentQuestion + 1).padStart(2, "0")} OF 09`;
+
+        questionText.textContent = current.question;
+
+        answerOptions.innerHTML = "";
+
+
+        current.answers.forEach(function(answer, index) {
+
+            const button = document.createElement("button");
+
+            button.classList.add("answer-option");
+
+            button.textContent = answer;
+
+            button.addEventListener("click", function() {
+                selectAnswer(index);
+            });
+
+            answerOptions.appendChild(button);
+
+        });
+
+    }
+
+
+    function selectAnswer(selectedIndex) {
+
+        const current = questions[currentQuestion];
+
+        if (selectedIndex === current.correct) {
+            score++;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+
+            showQuestion();
+
+        } else {
+
+            finishPartOne();
+
+        }
+
+    }
+
+
+    function finishPartOne() {
+
+        questionScreen.innerHTML = `
+            <p class="question-part">
+                PART 1 COMPLETE ✓
+            </p>
+
+            <h2>
+                Great job!
+            </h2>
+
+            <p class="part-complete-text">
+                Agora vamos para a última parte.
+                Você vai ler uma pequena história em inglês
+                e responder 3 perguntas sobre ela.
+            </p>
+
+            <button class="start-test" id="start-reading">
+                Continue
+                <span>→</span>
+            </button>
+        `;
+
+    }
+
+</script>
 
 </body>
 
