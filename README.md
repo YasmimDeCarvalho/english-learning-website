@@ -1,210 +1,178 @@
-# English, Naturally. 🌿
+# Village & Co.
 
-A minimalist educational website designed for children and teenagers learning English through natural, everyday conversation.
+### English for Children & Pre-Teens
 
-## About the Project
+Village & Co. is a bilingual educational web application designed to create a simple and welcoming English-learning experience for children and pre-teens.
 
-**English, Naturally.** is a personal educational website created to support an English-learning approach based on conversation, immersion, and meaningful communication.
+The project is being built from the ground up as a hands-on Software Engineering project, combining front-end development, backend development, database integration, API communication, and software testing.
 
-The main idea is simple:
-
-> **Learning English should feel natural.**
-
-Instead of focusing primarily on memorization and traditional grammar exercises, the teaching method encourages students to communicate in English through casual conversations, everyday topics, personal interests, and real-life situations.
-
-The website will provide information about the teaching approach, introduce the teacher, offer an English level assessment, and eventually provide a simple student area where students can access and submit assignments.
+> **Project Status:** **Active Development**
 
 ---
 
-## 🎯 Project Goals
+## 🌿 About the Project
 
-The website is being developed to:
+Village & Co. started as a front-end educational website and is evolving into a full-stack web application.
 
-* Present the English teaching philosophy and methodology
-* Introduce the teacher and their experience
-* Provide information for parents and students
-* Offer an English level assessment
-* Create a simple student area
-* Allow students to submit assignments
-* Provide teacher feedback
-* Track student progress over time
+The goal is to create an intuitive experience where families can learn about the teaching methodology, identify a student's starting English level, and interact with the services offered by Village & Co.
 
-The project is intentionally designed to remain **simple, minimalistic, welcoming, and easy to navigate**.
+The project also serves as a practical environment for applying Software Engineering and Quality Assurance concepts to a real application.
 
 ---
 
-## 🎨 Design Philosophy
+## ✨ Current Features
 
-The visual identity is inspired by modern, warm, and minimalist lifestyle brands.
+### 🌐 Bilingual Educational Website
 
-The design focuses on:
+The website presents Village & Co.'s English-learning approach with content designed for families of children and pre-teens.
 
-* Minimalism
-* Warm neutral colors
-* Clean typography
-* Natural imagery
-* Generous white space
-* Simple navigation
-* A welcoming but professional atmosphere
+The interface focuses on simplicity, readability, and a welcoming user experience.
 
-The goal is to create an experience that feels comfortable for children and teenagers while also giving parents a sense of trust and professionalism.
+### 📝 English Level Test
 
----
+An interactive level-test experience allows students to begin an English assessment by providing basic information such as their name and age.
 
-## 🗣️ Teaching Philosophy
+The level-test feature is being developed to help identify an appropriate starting point for each student.
 
-The teaching approach is based on **100% English conversation**.
+### 📅 Scheduling & Data Management
 
-Lessons are designed around:
+The application includes a scheduling flow connected to the backend and database.
 
-* Casual conversation
-* Everyday experiences
-* Student interests
-* Vocabulary in context
-* Listening
-* Speaking
-* Natural communication
+Form data is sent through the API and stored in the database, while existing reservations can be queried to help prevent occupied time slots from being selected.
 
-English and Portuguese are intentionally mixed throughout the website to reflect the project's identity and create a natural introduction to English.
+### 💬 Family Communication
 
-For example:
+Student and family communication is designed to be handled through WhatsApp rather than through a dedicated student login or portal.
 
-> **Where to start?**
-> Faça agora nosso teste de nível.
-
-Rather than providing a direct translation of every piece of content, English becomes part of the user's experience.
+This keeps communication simple and accessible while avoiding unnecessary account-management complexity.
 
 ---
 
-## 🛠️ Technologies
+## 🛠️ Tech Stack
 
-The project is currently being built using:
+### Front-End
 
-* **HTML5** — website structure
-* **CSS3** — styling and layout
-* **JavaScript** — interactivity
-* **Git** — version control
-* **GitHub** — source code management
-* **VS Code** — development environment
-* **Live Server** — local development and preview
+* HTML5
+* CSS3
+* JavaScript
 
-Additional technologies may be introduced as the student area and assessment system are developed.
+### Back-End
 
----
+* Node.js
+* Express.js
+* REST API
 
-## 📁 Current Project Structure
+### Database
 
-```text
-english-naturally/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
+* MySQL
+* SQL
 
-### `index.html`
+### Testing & Development Tools
 
-Contains the structure and content of the website.
-
-It currently includes:
-
-* Navigation
-* Hero section
-* Introduction to the teaching philosophy
-
-### `style.css`
-
-Controls the visual appearance of the website, including:
-
-* Colors
-* Typography
-* Spacing
-* Layout
-* Buttons
-* Navigation
-* Responsive styling
-
-### `script.js`
-
-Reserved for JavaScript functionality and future interactive features.
-
-### `README.md`
-
-Provides documentation about the project, its purpose, technologies, and development process.
+* Postman
+* API Testing
+* Manual Testing
+* Git
+* GitHub
+* VS Code
 
 ---
 
-## 🚧 Project Status
+## 🔗 Application Architecture
 
-The project is currently **under development**.
+The application follows a full-stack structure:
 
-### Completed
+**Front-End**
+HTML + CSS + JavaScript
 
-* [x] Initial project setup
-* [x] GitHub repository
-* [x] Navigation
-* [x] Hero section
-* [x] Teaching philosophy section
-* [x] Initial visual identity
-* [x] Minimalist design direction
+↓
 
-### Planned
+**REST API**
+Node.js + Express.js
 
-* [ ] Complete teaching methodology section
-* [ ] About the teacher section
-* [ ] Who We Teach section
-* [ ] English level assessment
-* [ ] Student login
-* [ ] Student dashboard
-* [ ] Assignment submission
-* [ ] Teacher feedback
-* [ ] Responsive mobile design
-* [ ] Website deployment
+↓
+
+**Database**
+MySQL (`village_co`)
+
+The front-end communicates with the backend through API requests, while the backend handles application logic and database operations.
+
+This architecture allows the project to separate the user interface, application logic, and data persistence.
 
 ---
 
-## 💻 Running the Project Locally
+## 🧪 Quality Assurance & Testing
 
-Clone the repository:
+Testing is an important part of the development process.
 
-```bash
-git clone YOUR_REPOSITORY_URL
-```
+The project is being used to practice QA concepts while features are developed and integrated.
 
-Navigate into the project folder:
+Testing activities include:
 
-```bash
-cd english-naturally
-```
+* Manual functional testing
+* API request and response validation
+* Postman API testing
+* Database validation
+* Form validation
+* Front-end behavior testing
+* Debugging and troubleshooting
+* Validation of expected vs. actual behavior
 
-Open the project in VS Code and launch `index.html` using **Live Server**.
-
-The website will open in your browser and automatically refresh whenever changes are saved.
-
----
-
-## 🌱 Future Development
-
-The project will gradually evolve from a simple informational website into a lightweight educational experience.
-
-The goal is **not** to build a complex learning management system.
-
-Instead, the focus is to create a simple and intentional experience where students can:
-
-1. Discover their English level
-2. Begin their lessons
-3. Practice through conversation
-4. Complete assignments
-5. Receive feedback
-6. Follow their learning progress
+Testing will continue to expand as new functionality is implemented.
 
 ---
 
-## By:
+## 📚 What I'm Practicing Through This Project
+
+Village & Co. provides hands-on experience across different areas of software development:
+
+* Front-End Development
+* Back-End Development
+* REST API Development
+* SQL & Database Management
+* API Integration
+* API Testing with Postman
+* Software Quality Assurance
+* Debugging
+* Git & GitHub Version Control
+* Full-Stack Application Architecture
+
+---
+
+## 🚀 Development Roadmap
+
+Village & Co. is still under active development.
+
+Planned improvements include:
+
+* Continue developing the English level-test experience
+* Expand API functionality
+* Improve form validation and error handling
+* Expand automated and manual testing coverage
+* Improve responsive behavior across devices
+* Continue refining accessibility and usability
+* Expand project documentation as the application evolves
+
+---
+
+## 📂 Project Philosophy
+
+This project is intentionally being developed incrementally.
+
+Instead of building every feature at once, functionality is designed, implemented, tested, and improved step by step. This makes Village & Co. both an educational product and a practical Software Engineering learning environment.
+
+---
+
+## 👩🏻‍💻 Developer
 
 **Yasmim De Carvalho**
 
-Software Engineering student with an interest in software development, quality assurance, and educational technology.
+Software Engineering Student focused on Quality Assurance and software development.
 
-This project combines web development with a personal interest in creating a more natural and conversational approach to English learning.
+Core areas of interest:
+
+`Quality Assurance` • `Software Testing` • `API Testing` • `SQL` • `Java` • `Web Development`
+
+---
+
+*Village & Co. is an independent educational software project currently under development.*
