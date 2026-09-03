@@ -3,6 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2/promise");
+const crypto = require("crypto");
+
 
 const app = express();
 
@@ -83,6 +85,8 @@ app.post("/placements", async (req, res) => {
             placement_time
         } = req.body;
 
+        const cancelToken = crypto.randomUUID();
+
         if (
             !student_name ||
             !student_age ||
@@ -102,22 +106,25 @@ app.post("/placements", async (req, res) => {
                 student_age,
                 parent_phone,
                 placement_date,
-                placement_time
+                placement_time,
+                cancel_token
             )
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?)
             `,
             [
                 student_name,
                 student_age,
                 parent_phone,
                 placement_date,
-                placement_time
+                placement_time,
+                cancelToken
             ]
         );
 
         res.status(201).json({
             message: "Placement agendado com sucesso!",
-            placement_id: result.insertId
+            placement_id: result.insertId,
+            cancel_token: cancelToken
         });
 
     } catch (error) {
@@ -167,6 +174,95 @@ app.get("/placements/booked", async (req, res) => {
 
         res.status(500).json({
             message: "Erro ao buscar horários disponíveis."
+        });
+    }
+});
+
+// ==============================
+// GET PLACEMENT BY CANCEL TOKEN
+// ==============================
+
+app.get("/placements/manage/:token", async (req, res) => {
+    try {
+        const { token } = req.params;
+
+        const [rows] = await db.query(
+            `
+            SELECT
+                student_name,
+                placement_date,
+                placement_time,
+                status
+            FROM placements
+            WHERE cancel_token = ?
+            `,
+            [token]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                message: "Agendamento não encontrado."
+            });
+        }
+
+        const placement = rows[0];
+
+        res.json({
+            student_name: placement.student_name,
+            placement_date: placement.placement_date,
+            placement_time: placement.placement_time.substring(0, 5),
+            status: placement.status
+        });
+
+    } catch (error) {
+        console.error("Erro ao buscar placement:", error);
+
+        res.status(500).json({
+            message: "Erro ao buscar o agendamento."
+        });
+    }
+});
+
+// ==============================
+// CANCEL PLACEMENT
+// ==============================
+
+app.patch("/placements/cancel/:token", async (req, res) => {
+    try {
+        const { token } = req.params;
+        const { cancellation_reason } = req.body;
+
+        const [result] = await db.query(
+            `
+            UPDATE placements
+            SET
+            status = 'cancelled',
+            cancellation_reason = ?,
+            cancelled_at = CURRENT_TIMESTAMP
+            WHERE cancel_token = ?
+            AND status = 'scheduled'
+            `,
+            [
+                cancellation_reason || null,
+                token
+            ]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "Agendamento não encontrado ou já cancelado."
+            });
+        }
+
+        res.json({
+            message: "Agendamento cancelado com sucesso!"
+        });
+
+    } catch (error) {
+        console.error("Erro ao cancelar placement:", error);
+
+        res.status(500).json({
+            message: "Erro ao cancelar o agendamento."
         });
     }
 });
