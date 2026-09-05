@@ -1,0 +1,165 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f6f1;
+    color: #30302d;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.manage-booking {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.booking-card {
+    width: 100%;
+    max-width: 620px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(48, 48, 45, 0.08);
+}
+
+.booking-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #8a8178;
+    margin-bottom: 12px;
+}
+
+.booking-card h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #30302d;
+    margin-bottom: 10px;
+}
+
+.booking-intro {
+    color: #6f6b66;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.booking-details {
+    border-top: 1px solid #e8e1d7;
+    border-bottom: 1px solid #e8e1d7;
+    margin-bottom: 32px;
+}
+
+.booking-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+}
+
+.booking-detail + .booking-detail {
+    border-top: 1px solid #eee9e2;
+}
+
+.booking-detail span {
+    color: #77716b;
+    font-size: 0.95rem;
+}
+
+.booking-detail strong {
+    color: #30302d;
+    font-weight: 600;
+    text-align: right;
+}
+
+.cancellation-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.cancellation-area label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #30302d;
+}
+
+.optional {
+    font-weight: 400;
+    color: #908a84;
+    font-size: 0.85rem;
+}
+
+#cancellation-reason {
+    width: 100%;
+    resize: vertical;
+    min-height: 110px;
+    padding: 14px;
+    border: 1px solid #d8d1c8;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #30302d;
+    background-color: #fcfbf8;
+    margin-bottom: 20px;
+}
+
+#cancellation-reason:focus {
+    outline: none;
+    border-color: #9e958a;
+}
+
+#cancel-booking-btn {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #30302d;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+#cancel-booking-btn:hover {
+    opacity: 0.85;
+}
+
+.booking-message {
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .manage-booking {
+        padding: 35px 16px;
+        align-items: flex-start;
+    }
+
+    .booking-card {
+        padding: 28px 22px;
+    }
+
+    .booking-card h1 {
+        font-size: 1.65rem;
+    }
+
+    .booking-detail {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .booking-detail strong {
+        text-align: left;
+    }
+}
