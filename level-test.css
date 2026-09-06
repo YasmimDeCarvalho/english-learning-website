@@ -288,3 +288,9 @@ body {
 
     gap: 12px;
 }
+
+.time-option:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}

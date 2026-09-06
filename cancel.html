@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerenciar Agendamento | Village & Co.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cancel.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <div class="mini-image">
+                <img
+                    src="images/mini-logo.png"
+                    alt="Village & Co."
+                    class="mini-logo"
+                >
+            </div>
+
+            <span class="sub-logo">
+                Fale inglês naturalmente
+            </span>
+        </div>
+    </header>
+
+
+    <main class="manage-booking">
+
+        <section class="booking-card">
+
+            <p class="booking-label">PLACEMENT TEST</p>
+
+            <h1>Gerenciar agendamento</h1>
+
+            <p class="booking-intro">
+                Confira os detalhes do seu agendamento abaixo.
+            </p>
+
+
+            <div id="booking-details" class="booking-details">
+
+                <div class="booking-detail">
+                    <span>Aluno(a)</span>
+                    <strong id="student-name">Carregando...</strong>
+                </div>
+
+                <div class="booking-detail">
+                    <span>Data</span>
+                    <strong id="placement-date">—</strong>
+                </div>
+
+                <div class="booking-detail">
+                    <span>Horário</span>
+                    <strong id="placement-time">—</strong>
+                </div>
+
+            </div>
+
+
+            <div id="cancellation-area" class="cancellation-area">
+
+                <label for="cancellation-reason">
+                    Motivo do cancelamento
+                    <span class="optional">(opcional)</span>
+                </label>
+
+                <textarea
+                    id="cancellation-reason"
+                    rows="4"
+                    maxlength="500"
+                    placeholder="Conte pra gente o motivo, se quiser."
+                ></textarea>
+
+                <button id="cancel-booking-btn" type="button">
+                    Cancelar agendamento
+                </button>
+
+            </div>
+
+
+            <div id="booking-message" class="booking-message"></div>
+
+        </section>
+
+    </main>
+
+    <script src="cancel.js"></script>
+
+</body>
+</html>
