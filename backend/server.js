@@ -137,6 +137,42 @@ app.post("/placements", async (req, res) => {
 });
 
 // ==============================
+// GET ALL PLACEMENTS
+// ==============================
+
+app.get("/placements", async (req, res) => {
+    try {
+
+        const [rows] = await db.query(
+            `
+            SELECT
+                id,
+                student_name,
+                student_age,
+                parent_phone,
+                placement_date,
+                placement_time,
+                status
+            FROM placements
+            ORDER BY placement_date ASC, placement_time ASC
+            `
+        );
+
+        res.json(rows);
+
+    } catch (error) {
+
+        console.error("Erro ao buscar placements:", error);
+
+        res.status(500).json({
+            message: "Erro ao buscar os agendamentos."
+        });
+
+    }
+});
+
+
+// ==============================
 // GET BOOKED TIMES
 // ==============================
 
