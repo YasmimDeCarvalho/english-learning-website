@@ -155,7 +155,7 @@ app.get("/placements/booked", async (req, res) => {
             SELECT placement_time
             FROM placements
             WHERE placement_date = ?
-            AND status = 'scheduled'
+            AND status IN ('pending', 'confirmed')
             `,
             [date]
         );
@@ -224,6 +224,45 @@ app.get("/placements/manage/:token", async (req, res) => {
 });
 
 // ==============================
+// CONFIRM PLACEMENT
+// ==============================
+
+app.patch("/placements/confirm/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const [result] = await db.query(
+            `
+            UPDATE placements
+            SET status = 'confirmed'
+            WHERE id = ?
+            AND status = 'pending'
+            `,
+            [id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "Pré-agendamento não encontrado ou já confirmado."
+            });
+        }
+
+        res.json({
+            message: "Agendamento confirmado com sucesso!"
+        });
+
+    } catch (error) {
+        console.error("Erro ao confirmar placement:", error);
+
+        res.status(500).json({
+            message: "Erro ao confirmar o agendamento."
+        });
+    }
+});
+
+
+
+// ==============================
 // CANCEL PLACEMENT
 // ==============================
 
@@ -240,7 +279,7 @@ app.patch("/placements/cancel/:token", async (req, res) => {
             cancellation_reason = ?,
             cancelled_at = CURRENT_TIMESTAMP
             WHERE cancel_token = ?
-            AND status = 'scheduled'
+            AND status IN ('pending', 'confirmed')
             `,
             [
                 cancellation_reason || null,
