@@ -120,6 +120,16 @@ timeButtons.forEach(function(button) {
 });
 
 // ==============================
+// FORMAT PLACEMENT DATE
+// ==============================
+
+function formatPlacementDate(dateString) {
+    const [year, month, day] = dateString.split("-");
+
+    return `${day}/${month}/${year}`;
+}
+
+// ==============================
 // SUBMIT PLACEMENT
 // ==============================
 
@@ -174,11 +184,22 @@ placementForm.addEventListener("submit", async function(event) {
             return;
         }
 
-        alert("Nivelamento agendado com sucesso!");
 
-        console.log("Placement criado:", data);
+            const formattedDate = formatPlacementDate(placementDate);
 
-        window.location.href = "index.html";
+            const message = `Olá! Acabei de realizar o pré-agendamento do nivelamento de ${studentName} para ${formattedDate} às ${placementTime} e gostaria de confirmar o horário.`;
+
+            const whatsappNumber = "5513991352040";
+
+            const whatsappUrl =
+                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            alert("Pré-agendamento realizado com sucesso! Para confirmar o horário, continue pelo WhatsApp.");
+
+            console.log("Placement criado:", data);
+            console.log("Mensagem WhatsApp:", message);
+
+            window.location.href = whatsappUrl;
 
 
     } catch (error) {
